@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>App Name: A Coding Project By Brian Houts</title>
+    <title>100 Bold: A Coding Project By Brian Houts</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +25,7 @@
 <!--==== Nav Section ===-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/BHinitialLarge.png" class="d-inline-block align-text-top" width="30" height="24" > APP NAME</a>
+        <a class="navbar-brand" href="#"><img src="img/BHinitialLarge.png" class="d-inline-block align-text-top" width="30" height="24" > 100 Bold</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
                     <a class="nav-link active" aria-current="page href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/BGH76/Hundo">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="#">About</a>
@@ -59,17 +59,70 @@
             <div class="col-lg-8">
                 <pre class="line-number">
                     <code class="language-javascript">
-                        // Call Hello World
-                        function HelloWorld(){
-                        alert("Hello World");
-                        }
+                        // Get values from page
+function getValues() {
+    //get values from the page
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+    if(endValue > 100){
+        endValue = 100;
+    }
+    let number = [];
+    
+    //parse into Integers
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+    // validate input
+    if(Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        number = generateNumber(startValue, endValue);
+        displayNumbers(number);
+    }
+    else {
+        alert("Must enter numbers");
+    }
+}
+
+// Generate numbers from startvalue to the endvalue
+function generateNumber(start, end) {
+    let number = [];
+    for (let idx = start; idx <= end; idx++) {
+        number.push(idx);
+    }
+    return number;
+}
+
+// Display the numbers and mark even number bold
+function displayNumbers (numbers) {
+    let templateRows = "";
+    for (let index = 0; index < numbers.length; index++) {
+      let className = "even";  
+      let number = numbers[index];
+      if (number % 2 == 0) {
+        className = "even";
+      }
+      else {
+        className = "odd";
+      }
+      // This will not display correctly in Prism. 
+      //See source code for full detail.
+      templateRows += `<tr><td class="${className}">${number}</td></tr>`;  
+    }
+    document.getElementById("results").innerHTML = templateRows;
+}
+
                     </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>The Code is structed in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a fucntion that displays an alert with a message of "Hello World"</p>
+                <h5>100 Bold</h5>
+                <p>This is a simple project using HTML/CSS and some vanilla JavaScript.</p>
+                <p>The interesting lesson in this script, is learning to use Javascript to insert
+                    HTML tags into your document. 
+                </p>
+                <p>For example: depending on the numbers entered, Javascript will build the display table dynamically
+                    and add the correct number of tr and td tags as needed. In addition, the proper css class will be added to each td tag and
+                    render the number bold or normal as needed.  
+                </p>
             </div>
         </div>
      </div>

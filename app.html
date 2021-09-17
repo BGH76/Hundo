@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>App Name: A Coding Project By Brian Houts</title>
+    <title>100 Bold: A Coding Project By Brian Houts</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
 <!--==== Nav Section ===-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/BHinitialLarge.png" class="d-inline-block align-text-top" width="30" height="24" > APP NAME</a>
+        <a class="navbar-brand" href="#"><img src="img/BHinitialLarge.png" class="d-inline-block align-text-top" width="30" height="24" > 100 Bold</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                     <a class="nav-link" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/BGH76/Hundo">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="#">About</a>
@@ -52,8 +52,40 @@
 </nav>
  <!--==== Main Section ===-->
  <main class="flex-shrink-0">
-     <div class="container">
-
+     <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col col-lg-4 border-end border-2">
+                <h1>100 Bold: A Coding Project</h1>
+                <h4 class="lead">Living in the loop. Check out this JavaScript app designed to loop through 100 numbers and display all even #'s in <strong>Bold.</strong>
+                    Give it a try just to kill some time. Why not? 🤷‍♂️</h4>
+                <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                <p>Enter a starting value and a eding value. Press the button and the values will appear.</p>    
+            </div>
+            <div class="col col-lg-8">
+                <div>
+                    <h5>Enter Values</h5>
+                    <form class="row gy-2 gx-3">
+                        <div class="col">
+                            <input id="startValue" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Start Value">
+                        </div>
+                        <div class="col">
+                            <input id="endValue" type="number" class="form-control" placeholder="Start Value" value=100 aria-label="Start Value">
+                        </div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Give me the Numbers!</button>
+                        </div>
+                    </form>
+                    <h2 class="mt-5 border-bottom border-2">Results</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <tbody id="results">
+                                <!--Results Go Here-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
      </div>
 </main>
 <!--==== Footer Section ===-->
@@ -85,6 +117,9 @@
 integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
 </script>
 <script src="js/site.js"></script>
+<script>
+    document.getElementById("btnSubmit").addEventListener("click", getValues)
+</script>
 </body>
 
 </html>
